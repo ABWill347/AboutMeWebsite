@@ -51,6 +51,33 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .scroll-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4fd1c5;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+}
+
+.scroll-button:hover {
+    background-color: #38b2ac;
+}
+
+.scroll-button i {
+    font-size: 24px;
+}
+
     </style>
 </head>
 <body>
@@ -62,6 +89,7 @@
     
     <nav class="bg-teal-500 text-white shadow-lg">
         <div class="container mx-auto flex flex-col sm:flex-row justify-center">
+            <a class="nav-link px-6 py-3" href="#career">Career summary</a>
             <a class="nav-link px-6 py-3" href="#experience">Experience</a>
             <a class="nav-link px-6 py-3" href="#skills">Skills</a>
             <a class="nav-link px-6 py-3" href="#education">Education</a>
@@ -76,8 +104,19 @@
     </nav>
 
     <div class="container mx-auto max-w-screen-lg p-6">
-        
-        <div id="experience" class="resume-item fade-in">
+        <div id="career" class="resume-item fade-in">
+        <h2 class="text-3xl font-semibold mb-4">Career summary</h2>
+            <p class="mb-8">Motivated Software Developer with a strong foundation in software development, fraud detection, and security measures. Currently contributing to innovative solutions at Merck, where they integrated Jira into team workflows to enhance project management efficiency during an internship. With a background in law enforcement and IT management, they apply advanced problem-solving skills to develop and enhance applications. Proficient in coding, they are dedicated to delivering solutions that combine technical expertise with practical insights.</p>
+        </div>
+
+
+
+
+        <div id="scroll-button" class="scroll-button">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+
+            <div id="experience" class="resume-item fade-in">
             <h2 class="text-3xl font-semibold mb-4">Work Experience</h2>
 
             
@@ -85,9 +124,10 @@
                 <p class="font-semibold">Stability Processes Transformation Intern  | Merck</p>
                 <p class="text-gray-600">Aug 2024 - Jan 2024</p>
                 <ul class="list-disc list-inside">
-                    <li>add</li>
-                    <li>add</li>
-                    <li>add</li>
+                    <li>Streamlined project management by integrating and customizing Jira workflows, Power BI dashboards, and Microsoft Planner to track progress.</li>
+                    <li>Reduced project delivery timelines by 20% through optimized Jira configurations and tailored automations.</li>
+                    <li>Utilized Python to graph progress, enhancing task prioritization and tracking accuracy across projects.</li>
+                    <li>Increased team productivity by developing intuitive solutions for seamless collaboration and progress monitoring.</li>
                 </ul>
             </div>
 
@@ -96,9 +136,8 @@
                 <p class="font-semibold">Fraud Analyst | Barclays Bank USA</p>
                 <p class="text-gray-600">Jul 2022 - Jan 2024</p>
                 <ul class="list-disc list-inside">
-                    <li>add</li>
-                    <li>addr</li>
-                    <li>add</li>
+                    <li>Collaborated with cross-functional teams to enhance security protocols, investigate suspicious transactions, and mitigate risks using LexisNexis tools.</li>
+                    <li>Applied analytical rigor and strategic insights to mitigate financial risks, safeguard the company’s reputation, and drive continuous improvement in fraud detection methodologies.</li>
                 </ul>
             </div>
 
@@ -107,9 +146,8 @@
                 <p class="font-semibold">Sergeant | Delaware Department of Correction</p>
                 <p class="text-gray-600">Jan 2019 - July 2022</p>
                 <ul class="list-disc list-inside">
-                    <li>add</li>
-                    <li>add</li>
-                    <li>add</li>
+                    <li>Supervised and led correctional officers, ensuring the safety, security, and efficient operation of the facility.</li>
+                    <li>Oversaw daily operations, enforced policies, and maintained discipline and order among inmates.</li>
                 </ul>
             </div>
 
@@ -118,9 +156,7 @@
                 <p class="font-semibold">Youth Care Coordinator, Upward Bound | DELAWARE TECHNICAL COMMUNITY COLLEGE </p>
                 <p class="text-gray-600">Jan 2017 - Jan 2020</p>
                 <ul class="list-disc list-inside">
-                    <li>add</li>
-                    <li>add</li>
-                    <li>add</li>
+                    <li>Led the implementation of cutting-edge IT solutions, optimizing efficiency and enhancing productivity across diverse operational areas-</li>
                 </ul>
             </div>
         </div>
@@ -136,7 +172,7 @@
                 <li>JavaScript (React, Node.js)</li>
                 <li>Python (Django, Flask)</li>
                 <li>CSS, HTML</li>
-                <li>Java</li>
+                <li>Java,Spring Boot, RESTful APIs, JSON</li>
                 <li>SQL</li>
                 <li>Version Control (Git, GitHub)</li>
             </ul>
@@ -161,6 +197,16 @@
     </footer>
 
     <script>
+    document.getElementById('scroll-button').addEventListener('click', function() {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+    });
+    const sections = document.querySelectorAll('.fade-in');
+    sections.forEach(section => {
+        section.classList.add('visible');
+    });
+});
         
         const sections = document.querySelectorAll('.fade-in');
         const experiences = document.querySelectorAll('.experience-item');
@@ -186,6 +232,7 @@
         window.addEventListener('scroll', checkVisibility);
         checkVisibility();
     </script>
+    
 </body>
 </html>
 
